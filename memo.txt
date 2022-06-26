@@ -1,0 +1,85 @@
+# 環境設定
+npx create-next-app next-portfolio --use-npm
+cd next-portfolio
+mkdir src
+mv -r {pages,styles} src
+
+eslintの設定
+prettierの設定
+
+# Next.jsを動かす
+npm run --silent dev
+localhost:3000
+
+# create-next-appのクリーンアップ
+rm -rf src/pages/api
+rm -f src/styles/Home.module.css
+
+_app.js : トップレベルのファイル（アプリ全体で適用させたい設定やスタイルを記述）
+index.js : /にアクセスした時に表示されるページ
+global.css : 全体で適用させるスタイルとリセットCSSを記述
+
+# Reactの書き方
+# CSSスタイルのあて方
+基本はstyle.cssを作る方法（classがclassNameになる）
+
+# CSS Modules
+touch src/styles/index.module.css
+
+# pagesフォルダ
+touch src/pages/blog.js
+pagesフォルダに入れたファイルは自動的にページとして生成され、ルーティングされる
+
+# Linkの使い方
+JSXではreturnのカッコ内の要素をひとつのタグ（親要素）で挟む必要がある
+<a href=...でもページは移動するがページがリフレッシュされるので遷移が遅くなる
+
+# 記事一覧ページの作成
+記事データを作る
+mkdir src/data
+touch src/data/first-blog.md
+---
+ここをFrontmatterという
+タイトルや日時、要約（excerpt）等を書く
+---
+本文はFrontmatterの下に書く
+
+マークダウンデータをReactで扱うためのパッケージをダウンロード
+npm i raw-loader gray-matter react-markdown
+
+raw-loader: マークダウンの読み込み
+gray-matter: frontmatterの処理
+react-markdown: Reactコンポーネントでのマークダウン処理
+
+next.config.jsの編集
+
+マークダウンをblog.jsに取り込む仕組み
+Next.jsでデータを取り扱う3つの方法
+1. getStaticProps
+2. getStaticPaths: データを取り込む
+3. getServerSideProps: URLの生成と登録を行う
+
+getStaticPropsのpropsに渡されたものはpropsとしてコンポーネントに入る
+getStaticPropsの中のデータはpropsの{}に入れることでコンポーネントに渡せる
+
+# 記事ページの作成　その1
+（概要）
+
+# 記事ページの作成　その2
+（ひな形ファイル作り）
+mkdir src/pages/blog
+touch src/pages/blog/[slug].js
+Next.jsでは[]は汎用ファイル
+
+# 記事ページの作成　その3
+（slugの生成と登録）
+
+pathsに渡すときは配列にするため、map()を使う
+
+# 記事ページの作成　その4
+（データを読み込む）
+
+getStaticPathsはgetStaticPropsと一緒に使う必要がある
+getStaticPropsを書く前はconsole.log()が使えない
+
+markdownの本文の表示にはreact-markdownが必要
