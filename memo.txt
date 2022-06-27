@@ -83,3 +83,39 @@ getStaticPathsはgetStaticPropsと一緒に使う必要がある
 getStaticPropsを書く前はconsole.log()が使えない
 
 markdownの本文の表示にはreact-markdownが必要
+
+#################
+第3章　開発編　その2
+#################
+Next.jsの画像はpublicフォルダに配置しなければならない
+
+next/image
+画像最適化、リサイズ、遅延ローディングの設定を自動で行う
+
+Indexページの作成
+Skillsの画像はSVG形式なので、最適化の必要はなく、<img>タグで読み込む
+
+Profileの画像
+Imageタグのsrcはpublicフォルダ内での相対パス
+heightとwidthは必須
+quality : 画像の質（デフォルト75）
+priority : プリロードの優先順位
+layout : 画像の表示方法
+参考: https://nextjs.org/docs/api-reference/next/image
+
+jpgがnext/imageにより最適化されwebpで表示される
+
+Heroの画像
+スクリーンの横幅が小さくなっても画像の高さを維持するためにheightをwidthを使わず、
+layout="fill" objectFit="cover"を使う
+
+# 記事一覧ページの作成
+src/pages/blog.js
+
+# 記事ページの作成
+[slug].js
+
+# コンタクトページの作成
+contact.js
+
+# layout.jsの作成

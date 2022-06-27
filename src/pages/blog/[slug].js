@@ -1,15 +1,36 @@
+import Image from 'next/image';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 
 const SingleBlog = (props) => {
   // console.log(props);
   // return <h1>記事ページ</h1>;
+  // return (
+  //   <div>
+  //     <h1>{props.frontmatter.title}</h1>
+  //     <p>{props.frontmatter.date}</p>
+  //     <ReactMarkdown>{props.markdownBody}</ReactMarkdown>
+  //   </div>
+  // );
+
   return (
-    <div>
-      <h1>{props.frontmatter.title}</h1>
-      <p>{props.frontmatter.date}</p>
-      <ReactMarkdown>{props.markdownBody}</ReactMarkdown>
-    </div>
+    <>
+      <div>
+        <Image
+          src={props.frontmatter.image}
+          alt='blog-image'
+          height='500'
+          width='1000'
+        />
+      </div>
+      <div>
+        <div>
+          <h1>{props.frontmatter.title}</h1>
+          <p>{props.frontmatter.date}</p>
+          <ReactMarkdown>{props.markdownBody}</ReactMarkdown>
+        </div>
+      </div>
+    </>
   );
 };
 
