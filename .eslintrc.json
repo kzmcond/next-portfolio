@@ -1,3 +1,95 @@
 {
-  "extends": ["next", "next/core-web-vitals", "prettier"]
+  "extends": ["next/core-web-vitals", "prettier"],
+  "plugins": ["import", "unused-imports"],
+  "rules": {
+    // "import/order": [
+    //   "error",
+    //   {
+    //     "groups": [
+    //       "builtin",
+    //       "external",
+    //       "internal",
+    //       ["parent", "sibling"],
+    //       "object",
+    //       "type",
+    //       "index"
+    //     ],
+    //     "newLines-between": "always",
+    //     "pathGroupsExcludedImportTypes": ["builtin"],
+    //     "alphabetize": {
+    //       "order": "asc",
+    //       "caseInsensitive": true
+    //     },
+    //     "pathGroups": [
+    //       { "pattern": "@/libs/**", "group": "internal", "position": "before" },
+    //       {
+    //         "pattern": "@/generated/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "@/components/common",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "@/components/hooks",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "@/components/ui/**",
+    //         "group": "internal",
+    //         "position": "before"
+    //       },
+    //       {
+    //         "pattern": "./**.module.css",
+    //         "group": "index",
+    //         "position": "before"
+    //       }
+    //     ]
+    //   }
+    // ]
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["parent", "sibling"],
+          "index",
+          "object",
+          "type"
+        ],
+        "newlines-between": "always",
+        // "pathGroupsExcludedImportTypes": ["builtin"],
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+        // "pathGroups": [
+        //   // ここに書いた順序で間に1行空行をあけつつ整頓される
+        //   { "pattern": "@/libs/**", "group": "internal", "position": "before" },
+        //   {
+        //     "pattern": "@/generated/**",
+        //     "group": "internal",
+        //     "position": "before"
+        //   },
+        //   // ... 省略
+        //   {
+        //     "pattern": "@/components/ui/**",
+        //     "group": "internal",
+        //     "position": "before"
+        //   },
+
+        //   // styles
+        //   // 最後尾にしたいのでgroupをindex扱いにする
+        //   {
+        //     "pattern": "./**.module.css",
+        //     "group": "index",
+        //     "position": "before"
+        //   }
+        // ]
+      }
+    ],
+    "unused-imports/no-unused-imports": "error"
+  }
 }

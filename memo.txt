@@ -119,3 +119,34 @@ src/pages/blog.js
 contact.js
 
 # layout.jsの作成
+共通パーツ
+mkdir src/components
+touch src/components/{header,footer}.js
+
+layout.js : header.jsとfooter.jsをまとめたコンポーネント
+
+通常、Reactのコンポーネントは<Header />とするが、<Header>〜</Header>とする場合、挟まれた要素は特殊なprops、childrenにより渡される
+
+touch src/components/layout.js
+
+<Layout>
+children
+</Layout>
+
+スタイルを当てる
+各ページに1枚のスタイルシート
+[slug].js : singleBlog.module.scss
+heaer.js, footer.js : common.module.scss
+
+all.scss : リセットスタイルとサイト全体で適用するスタイル(_app.jsで読み込む)
+variables.scss : 全体で共有するプライムカラーとレスポンシブ用のブレークポイント、containerのスタイル
+
+globals.css, index.module.css : 使わない
+
+第4章　デプロイ
+https://vercel.com
+
+githubでsignUp
+Import Git Repository
+Add Github Account
+Only select repositories

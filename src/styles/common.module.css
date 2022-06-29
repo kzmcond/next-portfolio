@@ -1,0 +1,69 @@
+.headerWrapper .container {
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.headerWrapper {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: #fff;
+}
+.headerWrapper .container .flexContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 70px;
+}
+.headerWrapper .container .flexContainer a {
+  color: inherit;
+  font-weight: 500;
+}
+.headerWrapper .container .flexContainer li {
+  display: inline-block;
+  margin: 0 0 0 6rem;
+}
+@media (max-width: 400px) {
+  .headerWrapper .container .flexContainer li {
+    margin: 0 0 0 4rem;
+  }
+}
+
+.footerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #474747;
+  height: 250px;
+}
+.footerWrapper .insideContainer a {
+  margin: 0 3rem;
+  color: #fff;
+}
+.footerWrapper .insideContainer a:hover {
+  opacity: 0.8;
+}
+@media (max-width: 540px) {
+  .footerWrapper .insideContainer a {
+    margin: 0 1.5rem;
+  }
+}
+.footerWrapper .insideContainer img {
+  width: 4rem;
+  height: 4rem;
+}
+.footerWrapper .insideContainer hr {
+  margin: 2rem auto;
+}
+.footerWrapper .insideContainer p {
+  color: #fff;
+  font-size: 1.4rem;
+}
+/*# sourceMappingURL=common.module.css.map */
